@@ -1,11 +1,21 @@
-import React from 'react'
+import React from "react";
+import { GridBackground } from "./ui/background-grid";
 
 const Header = () => {
   return (
-    <section id='header' className='max-w-screen-xl mx-auto h-28 border rounded-xl'>
-        Header
-    </section>
-  )
-}
+    <header className="items-center mx-auto max-w-screen-xl my-4">
+      <a href="/" className="flex items-center lg:justify-center lg:order-2">
+        <img
+          src="https://flowbite.com/docs/images/logo.svg"
+          className="mr-3 h-6 sm:h-9"
+          alt="Flowbite Logo"
+        />
+        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+          Flowbite
+        </span>
+      </a>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
