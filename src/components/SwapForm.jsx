@@ -114,7 +114,9 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
           </span>
         </LabelInputContainer>
         <button
-          className="bg-gradient-to-br relative group/btn hover:border-primary bg-gray-50 block w-full text-textColor shadow-input rounded-md h-10 font-medium border-secondary border"
+          className={`${
+            !isConnected ? `cursor-not-allowed` : null
+          } bg-gradient-to-br relative group/btn hover:border-primary focus:bg-accent focus:text-textColor duration-500 transition-colors animate-in bg-gray-50 block w-full text-textColor shadow-input rounded-md h-10 font-medium border-accent border`}
           type="submit"
           disabled={!isConnected}
         >
