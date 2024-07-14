@@ -42,7 +42,14 @@ const FAQ = () => {
   ];
   return (
     <section className="w-[400px]">
-      <h1 className="text-4xl font-bold mb-4">FAQ</h1>
+      <div className="flex justify-between items-center gap-1">
+        <h1 className="text-4xl font-bold mb-4">FAQ</h1>
+        <img
+          src="/src/assets/faq_godzilla.svg"
+          className="h-20"
+          alt="Flowbite Logo"
+        />
+      </div>
       <Accordion type="single" className="" collapsible>
         {faqs.map((faq, index) => (
           <AccordionItem value={index}>
