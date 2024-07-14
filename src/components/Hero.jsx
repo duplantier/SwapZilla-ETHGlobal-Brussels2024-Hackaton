@@ -36,8 +36,8 @@ const Hero = () => {
           Cross-chain, marketplace-based way of swapping.
         </h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 ">
-          Here at Flowbite we focus on markets where technology, innovation, and
-          capital can unlock long-term value and drive economic growth.
+          We introduce a new way of swapping tokens across different blockchains
+          in a marketplace-based system.
         </p>
         <button
           className="p-[3px] relative"

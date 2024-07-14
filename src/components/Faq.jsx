@@ -11,34 +11,32 @@ const FAQ = () => {
     {
       question: "What is Swapzilla?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, dolorem!",
+        "Swapzilla is a cross-chain, marketplace-based way of swapping tokens.",
     },
     {
       question: "Why to use Swapzilla?",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+      answer:
+        "Because Swapzilla makes it possible for you to swap tokens across different blockchains.",
+    },
+    {
+      question: "What is the Origin Chain?",
+      answer: "",
     },
     {
       question: "How can I change the Origin Chain?",
+      answer:
+        "As you change your current chain, the origin chain will change accordingly.",
+    },
+    {
+      question: "What is the Target Chain?",
+      answer: "",
+    },
+    {
+      question: "What is the Deadline?",
       answer: "Yes. It adheres to the WAI-ARIA design pattern.",
     },
     {
-      question: "Soru 4",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      question: "Soru 5",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      question: "Soru 6",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      question: "Soru 7",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
-    },
-    {
-      question: "Soru 8",
+      question: "How the system works?",
       answer: "Yes. It adheres to the WAI-ARIA design pattern.",
     },
   ];
