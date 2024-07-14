@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "./ui/label";
 
@@ -10,7 +10,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import {
+  useWeb3ModalAccount,
+  useWeb3ModalState,
+} from "@web3modal/ethers5/react";
 
 const BottomGradient = () => {
   return (
@@ -30,24 +33,29 @@ const LabelInputContainer = ({ children, className }) => {
 };
 
 const SwapForm = ({ isWalletConnected, walletAddress }) => {
+  //---FORM DATA---
   const [originChain, setOriginChain] = useState("");
   const [targetChain, setTargetChain] = useState("");
   const [deadline, setDeadline] = useState("");
-  const [purchasedTokenNumber, setPurchasedTokenNumber] = useState(0);
-  const {
-    address: userWalletAddress,
-    isConnecting,
-    isDisconnected,
-    isConnected,
-  } = useWeb3ModalAccount();
+  const [amount, setAmount] = useState(0);
+  const { selectedNetworkId } = useWeb3ModalState();
+  //---FORM DATA---
+
+  const { address, isConnecting, isDisconnected, isConnected } =
+    useWeb3ModalAccount();
+
   function isInteger(value) {
     return Number.isInteger(value);
   }
 
-  function handleSubmit(values) {
-    console.log(values);
+  // Form submit
+  function handleSubmit() {
+    console.log();
   }
 
+  useEffect(() => {
+    setOriginChain(selectedNetworkId);
+  }, [selectedNetworkId]);
   return (
     <div className="  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white ">
       <h2 className="font-bold text-xl text-neutral-800">Get Started</h2>
@@ -59,16 +67,9 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
         {/* Otomatik olarak aktif chain'den gelecek. */}
         <LabelInputContainer className="mb-4">
           <Label htmlFor="originChain">📍 Origin Chain</Label>
-          <Select onValueChange={setOriginChain}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select Origin Chain" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Sepolia">Sepolia</SelectItem>
-              <SelectItem value="Base">Base</SelectItem>
-              <SelectItem value="Scroll">Scroll</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="rounded-lg border px-4 py-2 bg-textColor">
+            <w3m-network-button />
+          </div>
         </LabelInputContainer>
         <LabelInputContainer>
           <Label htmlFor="originChain">🎯 Target Chain</Label>
@@ -77,9 +78,9 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
               <SelectValue placeholder="Select Target Chain" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Sepolia">Sepolia</SelectItem>
-              <SelectItem value="Base">Base</SelectItem>
-              <SelectItem value="Scroll">Scroll</SelectItem>
+              <SelectItem value={11155111}>Sepolia</SelectItem>
+              <SelectItem value={8453}>Base</SelectItem>
+              <SelectItem value={534352}>Scroll</SelectItem>
             </SelectContent>
           </Select>
         </LabelInputContainer>
@@ -90,9 +91,9 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
               <SelectValue placeholder="Select Deadline" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="5min">5 Min.</SelectItem>
-              <SelectItem value="10min">10 Min.</SelectItem>
-              <SelectItem value="15min">15 Min.</SelectItem>
+              <SelectItem value={300}>5 Min.</SelectItem>
+              <SelectItem value={600}>10 Min.</SelectItem>
+              <SelectItem value={900}>15 Min.</SelectItem>
             </SelectContent>
           </Select>
         </LabelInputContainer>
@@ -100,21 +101,20 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
         <LabelInputContainer className="mb-4">
           <Label htmlFor="originChain">🟡 ETH Amount</Label>
           <input
-            name="tokenNumber"
             type="number"
             defaultValue={1}
-            onChange={(e) => setPurchasedTokenNumber(+e.target.value)}
+            onChange={(e) => setAmount(+e.target.value)}
             className="rounded-lg active:border-brand-500 border-2 w-full h-10 text-xl px-4 border-brand-400 focus:border-brand-primary focus:ring-brand-primary"
           />
 
           <span className="text-sm font-thin">
-            {!purchasedTokenNumber > 0 && isInteger(purchasedTokenNumber)
+            {!amount > 0 && isInteger(amount)
               ? "ETH Amount must be postive float."
               : null}
           </span>
         </LabelInputContainer>
         <button
-          className="bg-gradient-to-br relative group/btn   bg-gray-50 block w-full text-textColor shadow-input rounded-md h-10 font-medium ]"
+          className="bg-gradient-to-br relative group/btn hover:border-primary bg-gray-50 block w-full text-textColor shadow-input rounded-md h-10 font-medium border-secondary border"
           type="submit"
           disabled={!isConnected}
         >

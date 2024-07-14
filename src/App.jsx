@@ -4,15 +4,30 @@ import { createWeb3Modal, defaultConfig } from "@web3modal/ethers5/react";
 const projectId = "61658dfc0addfa0de74535259e960678";
 
 // 2. Set chains
-const mainnet = {
-  chainId: 1,
-  name: "Ethereum",
+const sepolia = {
+  chainId: 11155111,
+  name: "Sepolia",
   currency: "ETH",
-  explorerUrl: "https://etherscan.io",
-  rpcUrl: "https://cloudflare-eth.com",
+  explorerUrl: "https://sepolia.etherscan.io",
+  rpcUrl: "https://rpc.sepolia.org",
 };
 
-// 3. Create a metadata object
+const base = {
+  chainId: 8453,
+  name: "Base",
+  currency: "ETH",
+  explorerUrl: "https://base.org/explorer",
+  rpcUrl: "https://mainnet.base.org",
+};
+
+const scroll = {
+  chainId: 534352,
+  name: "Scroll",
+  currency: "ETH",
+  explorerUrl: "https://scroll.io/explorer",
+  rpcUrl: "https://scroll.io/rpc",
+};
+
 const metadata = {
   name: "ETHGlobal Brussels 2024 Hackaton",
   description: "AppKit Example",
@@ -20,25 +35,15 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-// 4. Create Ethers config
 const ethersConfig = defaultConfig({
-  /*Required*/
   metadata,
-
-  /*Optional*/
-  enableEIP6963: true, // true by default
-  enableInjected: true, // true by default
-  enableCoinbase: true, // true by default
-  rpcUrl: "...", // used for the Coinbase SDK
-  defaultChainId: 1, // used for the Coinbase SDK
 });
 
-// 5. Create a Web3Modal instance
 createWeb3Modal({
   ethersConfig,
-  chains: [mainnet],
+  chains: [sepolia, base, scroll],
   projectId,
-  enableAnalytics: true, // Optional - defaults to your Cloud configuration
+  enableAnalytics: true,
 });
 
 import "./App.css";
@@ -46,9 +51,8 @@ import FAQ from "./components/Faq";
 import SwapForm from "./components/SwapForm";
 
 function App() {
-
   return (
-    <section className="max-w-screen-lg mx-auto mt-4 rounded-lg px-4 mb-12 flex justify-between items-center ">
+    <section className="max-w-screen-lg h-[100vh] mx-auto  rounded-lg px-4 flex justify-between items-center ">
       <SwapForm />
       <FAQ />
     </section>
