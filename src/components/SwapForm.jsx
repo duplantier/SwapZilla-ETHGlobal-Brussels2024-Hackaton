@@ -9,7 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 
 const BottomGradient = () => {
   return (
@@ -33,7 +34,12 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
   const [targetChain, setTargetChain] = useState("");
   const [deadline, setDeadline] = useState("");
   const [purchasedTokenNumber, setPurchasedTokenNumber] = useState(0);
-
+  const {
+    address: userWalletAddress,
+    isConnecting,
+    isDisconnected,
+    isConnected,
+  } = useWeb3ModalAccount();
   function isInteger(value) {
     return Number.isInteger(value);
   }
@@ -110,6 +116,7 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
         <button
           className="bg-gradient-to-br relative group/btn   bg-gray-50 block w-full text-textColor shadow-input rounded-md h-10 font-medium ]"
           type="submit"
+          disabled={!isConnected}
         >
           Send
           <BottomGradient />
