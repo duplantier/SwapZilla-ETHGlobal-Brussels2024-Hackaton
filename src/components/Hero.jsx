@@ -24,7 +24,7 @@ const Hero = () => {
       <section id="hero" className="mx-auto max-w-screen-xl text-center  ">
         <div className="mb-2 flex justify-center items-center gap-1">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="/src/assets/Swapzilla.svg"
             className="mr-3 h-6 sm:h-9"
             alt="Flowbite Logo"
           />

@@ -72,15 +72,15 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
           </div>
         </LabelInputContainer>
         <LabelInputContainer>
-          <Label htmlFor="originChain">🎯 Target Chain</Label>
+          <Label htmlFor="targetChain">🎯 Target Chain</Label>
           <Select onValueChange={setTargetChain}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select Target Chain" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={11155111}>Sepolia</SelectItem>
-              <SelectItem value={8453}>Base</SelectItem>
-              <SelectItem value={534352}>Scroll</SelectItem>
+              <SelectItem value={"11155111"}>Sepolia</SelectItem>
+              <SelectItem value={"8453"}>Base</SelectItem>
+              <SelectItem value={"534352"}>Scroll</SelectItem>
             </SelectContent>
           </Select>
         </LabelInputContainer>
@@ -91,9 +91,9 @@ const SwapForm = ({ isWalletConnected, walletAddress }) => {
               <SelectValue placeholder="Select Deadline" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value={300}>5 Min.</SelectItem>
-              <SelectItem value={600}>10 Min.</SelectItem>
-              <SelectItem value={900}>15 Min.</SelectItem>
+              <SelectItem value={"300"}>5 Min.</SelectItem>
+              <SelectItem value={"600"}>10 Min.</SelectItem>
+              <SelectItem value={"900"}>15 Min.</SelectItem>
             </SelectContent>
           </Select>
         </LabelInputContainer>
