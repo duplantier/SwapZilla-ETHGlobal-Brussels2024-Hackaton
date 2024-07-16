@@ -52,7 +52,7 @@ const FAQ = () => {
       </div>
       <Accordion type="single" className="" collapsible>
         {faqs.map((faq, index) => (
-          <AccordionItem value={index}>
+          <AccordionItem value={index + 1}>
             <AccordionTrigger>{faq.question}</AccordionTrigger>
             <AccordionContent>{faq.answer}</AccordionContent>
           </AccordionItem>
