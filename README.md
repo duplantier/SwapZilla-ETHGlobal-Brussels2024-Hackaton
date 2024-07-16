@@ -1,6 +1,6 @@
-# SwapZilla 🦕 - Decentralized cross-chain swaps via LayerZero
+![](./src/assets/github-banner.png)
+# SwapZilla - Decentralized cross-chain swaps via LayerZero
 Create orders on one chain, match on another, execute swaps across networks—all without transferring assets to a bridge.
-
 <br>
 
 ## 📖 About The Project
