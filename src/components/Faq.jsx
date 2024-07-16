@@ -20,7 +20,7 @@ const FAQ = () => {
     },
     {
       question: "What is the Origin Chain?",
-      answer: "",
+      answer: "The Origin Chain is the chain you are currently on.",
     },
     {
       question: "How can I change the Origin Chain?",
@@ -29,15 +29,17 @@ const FAQ = () => {
     },
     {
       question: "What is the Target Chain?",
-      answer: "",
+      answer: "The Target Chain is the chain you want to swap to.",
     },
     {
       question: "What is the Deadline?",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+      answer:
+        "Deadline is the time limit for the swap to be completed. If the swap is not completed within the deadline, the swap order will be cancelled.",
     },
     {
       question: "How the system works?",
-      answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+      answer:
+        "Swapzilla plays as a third-party mediator to provide a concensus mechanishm to swap tokens across different blockchains between two parties.",
     },
   ];
   return (
