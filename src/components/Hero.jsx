@@ -11,12 +11,6 @@ const Hero = () => {
     isConnected,
   } = useWeb3ModalAccount();
 
-  useEffect(() => {
-    console.log("isConnecting: ", isConnecting);
-    console.log("isDisconnected: ", isDisconnected);
-    console.log("address: ", userWalletAddress);
-    console.log("isConnected: ", isConnected);
-  }, [isConnecting, userWalletAddress, isDisconnected, isConnected]);
   return (
     <section className=" h-[100vh] w-[100] bg-mainWhite bg-dot-black/[0.2] relative flex flex-col items-center justify-center mx-auto">
       {/* Radial gradient for the container to give a faded look */}
